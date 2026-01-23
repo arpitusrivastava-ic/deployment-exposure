@@ -87,6 +87,7 @@ func (r *ExposerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 				},
 				Spec: netv1.IngressSpec{
 					Rules: []netv1.IngressRule{{
+						Host: deployment.Name + ".local",
 						IngressRuleValue: netv1.IngressRuleValue{
 							HTTP: &netv1.HTTPIngressRuleValue{
 								Paths: []netv1.HTTPIngressPath{{
@@ -95,7 +96,9 @@ func (r *ExposerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 									Backend: netv1.IngressBackend{
 										Service: &netv1.IngressServiceBackend{
 											Name: svcName,
-											Port: netv1.ServiceBackendPort{Number: 80},
+											Port: netv1.ServiceBackendPort{
+												Number: 80,
+											},
 										},
 									},
 								}},

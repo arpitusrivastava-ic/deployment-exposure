@@ -1,4 +1,4 @@
-module github.com/arpitusrivastava-ic/deploymnet-exposure
+module github.com/arpitusrivastava-ic/deployment-exposure
 
 go 1.22.0
 

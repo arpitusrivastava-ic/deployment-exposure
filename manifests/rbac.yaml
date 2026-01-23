@@ -8,15 +8,16 @@ rules:
   resources: ["deployments"]
   verbs: ["get", "list", "watch"]
 
-# Manage Services (cluster-scope list/watch REQUIRED for cache)
+# Manage Services
 - apiGroups: [""]
   resources: ["services"]
-  verbs: ["get", "list", "watch", "create", "delete"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 # Manage Ingresses
 - apiGroups: ["networking.k8s.io"]
   resources: ["ingresses"]
-  verbs: ["get", "list", "watch", "create", "delete"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
